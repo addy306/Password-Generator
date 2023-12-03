@@ -100,21 +100,31 @@ function getPasswordOptions() {
 }
 
    // Prompt for character types
-   let lowerCasedCharacters = confirm('Include lowercase letters?');
-   let upperCasedCharacters = confirm('Include uppercase letters?');
-   let numericCharacters = confirm('Include numeric characters?');
-   let specialCharacters = confirm('Include special characters?');
+   let addlowerCaseChars = confirm('Do you want lowercase letters ? ' + 'Click Ok for Yes and Cancel for No');
+   let addupperCaseChars = confirm('Do you want uppercase letters ? ' + 'Click Ok for Yes and Cancel for No');
+   let addNumericChars = confirm('Do you want numeric letters ? ' + 'Click Ok for Yes and Cancel for No');
+   let addSpecialChars = confirm('Do you want special characters? ' + 'Click Ok for Yes and Cancel for No');
  
    // Validate at least one character type is selected
-   if (!lowerCasedCharacters && !upperCasedCharacters && !numericCharacters && !specialCharacters) {
+   if (!addlowerCaseChars && !addupperCaseChars && !addNumericChars && !addSpecialChars) {
      alert('Please select at least one character type.');
      return;
 }
+
+  // Return an object with user choices
+  return {
+    length: passwordLength,
+    includeLowercase: includeLowercase,
+    includeUppercase: includeUppercase,
+    includeNumeric: includeNumeric,
+    includeSpecial: includeSpecial
+  };
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  let randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
