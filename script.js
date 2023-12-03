@@ -90,7 +90,26 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+    // Prompt for password length
+    let passwordLength = parseInt(prompt('Enter the length of the password (between 8 and 128 characters):'));
 
+    // Validate password length
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    alert('Invalid password length. Please enter a number between 8 and 128.');
+    return;
+}
+
+   // Prompt for character types
+   let lowerCasedCharacters = confirm('Include lowercase letters?');
+   let upperCasedCharacters = confirm('Include uppercase letters?');
+   let numericCharacters = confirm('Include numeric characters?');
+   let specialCharacters = confirm('Include special characters?');
+ 
+   // Validate at least one character type is selected
+   if (!lowerCasedCharacters && !upperCasedCharacters && !numericCharacters && !specialCharacters) {
+     alert('Please select at least one character type.');
+     return;
+}
 }
 
 // Function for getting a random element from an array
