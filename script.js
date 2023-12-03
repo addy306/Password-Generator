@@ -101,12 +101,12 @@ function getPasswordOptions() {
 
    // Prompt for character types
    let addlowerCaseChars = confirm('Do you want lowercase letters ? ' + 'Click Ok for Yes and Cancel for No');
-   let addupperCaseChars = confirm('Do you want uppercase letters ? ' + 'Click Ok for Yes and Cancel for No');
+   let addUpperCaseChars = confirm('Do you want uppercase letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addNumericChars = confirm('Do you want numeric letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addSpecialChars = confirm('Do you want special characters? ' + 'Click Ok for Yes and Cancel for No');
  
    // Validate at least one character type is selected
-   if (!addlowerCaseChars && !addupperCaseChars && !addNumericChars && !addSpecialChars) {
+   if (!addlowerCaseChars && !addUpperCaseChars && !addNumericChars && !addSpecialChars) {
      alert('Please select at least one character type.');
      return;
 }
@@ -114,10 +114,10 @@ function getPasswordOptions() {
   // Return an object with user choices
   return {
     length: passwordLength,
-    includeLowercase: includeLowercase,
-    includeUppercase: includeUppercase,
-    includeNumeric: includeNumeric,
-    includeSpecial: includeSpecial
+    addlowerCaseChars: addlowerCaseChars,
+    addUpperCaseChars: addUpperCaseChars,
+    addNumericChars: addNumericChars,
+    addSpecialChars: addSpecialChars
   };
 }
 
@@ -129,7 +129,36 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  var options = getPasswordOptions();
 
+  // Create an array to store all possible characters based on user input
+  var possibleCharacters = [];
+  if (options.addlowerCaseChars) {
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+  }
+  if (options.addUpperCaseChars) {
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+  }
+  if (options.addNumericChars) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
+  }
+  if (options.addSpecialChars) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+  }
+
+  // Check if the user didn't select any character type
+  if (possibleCharacters.length === 0) {
+    alert('No character types selected. Please try again.');
+    return '';
+  }
+
+  // Generate the password by randomly selecting characters
+  var password = '';
+  for (let i = 0; i < options.length; i++) {
+    password += getRandom(possibleCharacters);
+  }
+
+  return password;
 }
 
 // Get references to the #generate element
