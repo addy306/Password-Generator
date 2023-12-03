@@ -100,13 +100,13 @@ function getPasswordOptions() {
 }
 
    // Prompt for character types
-   let addlowerCaseChars = confirm('Do you want lowercase letters ? ' + 'Click Ok for Yes and Cancel for No');
+   let addLowerCaseChars = confirm('Do you want lowercase letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addUpperCaseChars = confirm('Do you want uppercase letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addNumericChars = confirm('Do you want numeric letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addSpecialChars = confirm('Do you want special characters? ' + 'Click Ok for Yes and Cancel for No');
  
    // Validate at least one character type is selected
-   if (!addlowerCaseChars && !addUpperCaseChars && !addNumericChars && !addSpecialChars) {
+   if (!addLowerCaseChars && !addUpperCaseChars && !addNumericChars && !addSpecialChars) {
      alert('Please select at least one character type.');
      return;
 }
@@ -114,7 +114,7 @@ function getPasswordOptions() {
   // Return an object with user choices
   return {
     length: passwordLength,
-    addlowerCaseChars: addlowerCaseChars,
+    addLowerCaseChars: addLowerCaseChars,
     addUpperCaseChars: addUpperCaseChars,
     addNumericChars: addNumericChars,
     addSpecialChars: addSpecialChars
@@ -133,7 +133,7 @@ function generatePassword() {
 
   // Create an array to store all possible characters based on user input
   var possibleCharacters = [];
-  if (options.addlowerCaseChars) {
+  if (options.addLowerCaseChars) {
     possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
   }
   if (options.addUpperCaseChars) {
