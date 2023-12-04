@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Personal Password Generator</title>
+    <title>Password Generator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1>Personal Password Generator</h1>
+        <h1>Password Generator</h1>
       </header>
       <div class="card">
         <div class="card-header">
@@ -19,6 +19,7 @@
 
         <!-- Card body -->
         <div class="card-body">
+          <!-- Password Display Box -->
           <textarea
             readonly
             id="password"
@@ -26,28 +27,34 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
+        <!-- Password Length choice -->
         <div class="options">
           <div class="option">
             <label>Length (between 8 and 128)</label>
             <input type="number" id="length" min="8" max="128" value="8">
           </div>
+          <!-- Lowercase Checkbox -->
           <div class="option">
             <label>Include Lowercase</label>
             <input type="checkbox" id="lowercase" checked>
           </div>
+          <!-- Uppercase Checkbox -->
           <div class="option">
             <label>Include Uppercase</label>
             <input type="checkbox" id="uppercase" checked>
           </div>
+          <!-- Number Checkbox -->
           <div class="option">
             <label>Include Numbers</label>
             <input type="checkbox" id="numbers" checked>
           </div>
+          <!-- Special Character Checkbox -->
           <div class="option">
             <label>Include Symbols</label>
             <input type="checkbox" id="symbols" checked>
           </div>
         </div>
+        <!-- Generate Password Button -->
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
