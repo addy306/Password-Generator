@@ -95,6 +95,37 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
+// Functions for getting a random element from each array
+
+// Uppercase function
+function getUppercase() {
+  return upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
+}
+
+// Lowercase function
+function getLowercase() {
+  return lowerCasedCharacters[Math.floor(Math.random() * lowerCasedCharacters.length)];
+}
+
+// Number function
+function getNumber() {
+  return numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+}
+
+// Symbol function
+function getSymbol() {
+  return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+}
+
+// Password options configuration
+var passwordOptions = [
+  { field: upperCaseBox, getChar: getUppercase },
+  { field: lowerCaseBox, getChar: getLowercase },
+  { field: numbersBox, getChar: getNumber },
+  { field: symbolsBox, getChar: getSymbol }
+];
+
 // Function to get Password length and validate Password Length
 function getPasswordOptions() {
     // Prompt for password length
