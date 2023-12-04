@@ -1,3 +1,10 @@
+// DOM elements
+var lengthLabel = document.querySelector('#length');
+var upperCaseBox = document.querySelector('#uppercase');
+var lowerCaseBox = document.querySelector('#lowercase');
+var numbersBox = document.querySelector('#numbers');
+var symbolsBox = document.querySelector('#symbols');
+
 // Array of special characters to be included in password
 var specialCharacters = [
   '@',
@@ -88,10 +95,10 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
+// Function to get Password length and validate Password Length
 function getPasswordOptions() {
     // Prompt for password length
-    let passwordLength = parseInt(prompt('Enter the length of the password (between 8 and 128 characters):'));
+    let passwordLength = parseInt(lengthLabel.value);
 
     // Validate password length
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
@@ -99,26 +106,27 @@ function getPasswordOptions() {
     return;
 }
 
-   // Prompt for character types
+
+   /* // Prompt for character types
    let addLowerCaseChars = confirm('Do you want lowercase letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addUpperCaseChars = confirm('Do you want uppercase letters ? ' + 'Click Ok for Yes and Cancel for No');
    let addNumericChars = confirm('Do you want numeric letters ? ' + 'Click Ok for Yes and Cancel for No');
-   let addSpecialChars = confirm('Do you want special characters? ' + 'Click Ok for Yes and Cancel for No');
+   let addSpecialChars = confirm('Do you want special characters? ' + 'Click Ok for Yes and Cancel for No'); */
  
-   // Validate at least one character type is selected
+ /*   // Validate at least one checkbox is selected
    if (!addLowerCaseChars && !addUpperCaseChars && !addNumericChars && !addSpecialChars) {
      alert('Please select at least one character type.');
      return;
-}
+} */
 
-  // Return an object with user choices
+ /*  /* // Return an object with user choices
   return {
     length: passwordLength,
     addLowerCaseChars: addLowerCaseChars,
     addUpperCaseChars: addUpperCaseChars,
     addNumericChars: addNumericChars,
-    addSpecialChars: addSpecialChars
-  };
+    addSpecialChars: addSpecialChars 
+  }; */
 }
 
 // Function for getting a random element from an array
