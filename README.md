@@ -57,6 +57,14 @@ This shows different pages after testing different validations and results.
 ### When customer inputs number greater than 128 for password length
 ![Screenshot of Webpage](./images/over-max-input.JPG)
 
+## Mobile and tablet view images
+
+### Mobile view
+![Screenshot of Webpage](./images/mobile-view.JPG)
+
+### Tablet view
+![Screenshot of Webpage](./images/ipad-view.JPG)
+
 ### Built With
 
 * HTML
